@@ -19,7 +19,7 @@ public class PrinterOutputImpl extends javax.swing.JPanel implements IPrinterOut
      */
     public PrinterOutputImpl() {
         initComponents();
-        DefaultCaret caret = (DefaultCaret)txtDisplay.getCaret();
+        DefaultCaret caret = (DefaultCaret) txtDisplay.getCaret();
         caret.setUpdatePolicy(DefaultCaret.OUT_BOTTOM);
     }
 
@@ -98,6 +98,7 @@ public class PrinterOutputImpl extends javax.swing.JPanel implements IPrinterOut
 
         txtDisplay.setEditable(false);
         txtDisplay.setColumns(20);
+        txtDisplay.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         txtDisplay.setRows(5);
         txtDisplay.setName("txtDisplay"); // NOI18N
         jScrollPane1.setViewportView(txtDisplay);
@@ -140,12 +141,22 @@ public class PrinterOutputImpl extends javax.swing.JPanel implements IPrinterOut
     private javax.swing.JTextArea txtDisplay;
     // End of variables declaration//GEN-END:variables
 
+    private boolean ignoreNextLF = false;
+
     @Override
     public void setText(String text) {
         if (text != null && !text.isEmpty()) {
+            
+            if (text.equals("\n") && ignoreNextLF) {
+                return;
+            }
+            ignoreNextLF = false;
+            if (text.equals("\n")) {
+                ignoreNextLF = true;
+            }
             txtDisplay.append(text);
             writeToFile(text);
-            //System.out.println("PrinterForm received: " + text);
+//            System.out.println("PrinterForm received: " + text);
         }
     }
 

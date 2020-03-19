@@ -32,7 +32,7 @@ public class PrinterServer extends Thread {
             // Get messages from the client, line by line; return them
             String sCurrentLine;
             while ((sCurrentLine = in.readLine()) != null) {
-                //out.println(sCurrentLine);
+//                System.out.println(sCurrentLine);
                 Printer po = new Printer();
                 for (int i = 0; i < sCurrentLine.length(); i++) {
                     //System.out.println(i + ": " + input.charAt(i));
