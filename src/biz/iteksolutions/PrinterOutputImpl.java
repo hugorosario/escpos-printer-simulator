@@ -99,6 +99,7 @@ public class PrinterOutputImpl extends javax.swing.JPanel implements IPrinterOut
         txtDisplay.setEditable(false);
         txtDisplay.setColumns(20);
         txtDisplay.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        txtDisplay.setLineWrap(true);
         txtDisplay.setRows(5);
         txtDisplay.setName("txtDisplay"); // NOI18N
         jScrollPane1.setViewportView(txtDisplay);
@@ -111,7 +112,7 @@ public class PrinterOutputImpl extends javax.swing.JPanel implements IPrinterOut
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
