@@ -53,7 +53,7 @@
                           <Component id="tbFile" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="chkCoverOpen" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkFilterLF" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="chkPaperOut" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -74,7 +74,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="chkCoverOpen" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkFilterLF" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="chkPaperOut" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnClear" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -95,10 +95,10 @@
             <Property name="name" type="java.lang.String" value="tbFile" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="chkCoverOpen">
+        <Component class="javax.swing.JCheckBox" name="chkFilterLF">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cover Open"/>
-            <Property name="name" type="java.lang.String" value="chkCoverOpen" noResource="true"/>
+            <Property name="text" type="java.lang.String" value="Filter LF"/>
+            <Property name="name" type="java.lang.String" value="chkFilterLF" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="chkPaperOut">

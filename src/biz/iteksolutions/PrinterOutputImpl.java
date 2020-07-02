@@ -35,7 +35,7 @@ public class PrinterOutputImpl extends javax.swing.JPanel implements IPrinterOut
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tbFile = new javax.swing.JTextField();
-        chkCoverOpen = new javax.swing.JCheckBox();
+        chkFilterLF = new javax.swing.JCheckBox();
         chkPaperOut = new javax.swing.JCheckBox();
         btnClear = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -46,8 +46,8 @@ public class PrinterOutputImpl extends javax.swing.JPanel implements IPrinterOut
 
         tbFile.setName("tbFile"); // NOI18N
 
-        chkCoverOpen.setText("Cover Open");
-        chkCoverOpen.setName("chkCoverOpen"); // NOI18N
+        chkFilterLF.setText("Filter LF");
+        chkFilterLF.setName("chkFilterLF"); // NOI18N
 
         chkPaperOut.setText("Paper Out");
         chkPaperOut.setName("tbPaperOut"); // NOI18N
@@ -72,7 +72,7 @@ public class PrinterOutputImpl extends javax.swing.JPanel implements IPrinterOut
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tbFile))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(chkCoverOpen)
+                        .addComponent(chkFilterLF)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(chkPaperOut)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -88,7 +88,7 @@ public class PrinterOutputImpl extends javax.swing.JPanel implements IPrinterOut
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkCoverOpen)
+                    .addComponent(chkFilterLF)
                     .addComponent(chkPaperOut)
                     .addComponent(btnClear))
                 .addContainerGap(13, Short.MAX_VALUE))
@@ -133,7 +133,7 @@ public class PrinterOutputImpl extends javax.swing.JPanel implements IPrinterOut
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
-    private javax.swing.JCheckBox chkCoverOpen;
+    private javax.swing.JCheckBox chkFilterLF;
     private javax.swing.JCheckBox chkPaperOut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -147,13 +147,14 @@ public class PrinterOutputImpl extends javax.swing.JPanel implements IPrinterOut
     @Override
     public void setText(String text) {
         if (text != null && !text.isEmpty()) {
-            
-            if (text.equals("\n") && ignoreNextLF) {
-                return;
-            }
-            ignoreNextLF = false;
-            if (text.equals("\n")) {
-                ignoreNextLF = true;
+            if (chkFilterLF.isSelected()) {
+                if (text.equals("\n") && ignoreNextLF) {
+                    return;
+                }
+                ignoreNextLF = false;
+                if (text.equals("\n")) {
+                    ignoreNextLF = true;
+                }
             }
             txtDisplay.append(text);
             writeToFile(text);
